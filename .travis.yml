@@ -1,0 +1,29 @@
+language: cpp
+
+compiler:
+  - gcc
+  - clang
+
+branches:
+  only:
+    - master-merge-cmake
+    - add-imgcodecs
+    - test
+    - concurrency
+
+before_install: true
+install: true
+ 
+before_script:
+  - mkdir bin
+  - cd bin
+  - cmake ..
+
+script: make && make test
+
+after_success: true
+after_failure: true
+after_script: true
+ 
+notifications:
+  email: maxim.kostin@akvelon.net
