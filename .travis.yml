@@ -18,7 +18,11 @@ before_script:
   - cd bin
   - cmake ..
 
-script: make
+script: 
+  #- make
+  - compile release
+  - test_core 
+  #- perf_ocl-opencl 
 
 after_success: true
 after_failure: true
